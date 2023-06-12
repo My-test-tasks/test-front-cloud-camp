@@ -1,0 +1,11 @@
+@import '@styles/colors.scss';
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 12px;
+  text-decoration: none;
+  color: $blue;
+}
