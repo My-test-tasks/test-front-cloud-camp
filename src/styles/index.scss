@@ -1,0 +1,12 @@
+@import './colors.scss';
+@import './fonts.scss';
+@import './reset.scss';
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'SB-Sans-Interface', sans-serif;
+  font-size: 14px;
+  color: $text;
+  background-color: $page-bg;
+}
