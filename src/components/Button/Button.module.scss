@@ -1,0 +1,43 @@
+@import '@styles/colors.scss';
+
+.button {
+  height: 44px;
+  border-radius: 4px;
+  padding: 12px 16px;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.primary {
+  background-color: $blue;
+  color: $white;
+
+  &:hover {
+    background-color: $blue-hover;
+  }
+
+  &:active {
+    background-color: $blue-active;
+  }
+}
+
+.secondary {
+  border: 1.5px solid $blue;
+  background-color: $white;
+  color: $blue;
+
+  &:hover {
+    border: 1.5px solid $blue-hover;
+    background-color: $blue-hover;
+    color: $white;
+  }
+
+  &:active {
+    border: 1.5px solid $blue-active;
+    background-color: $white;
+    color: $blue-active;
+  }
+}
