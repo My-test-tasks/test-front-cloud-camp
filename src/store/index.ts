@@ -1,16 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import formSlice from './form/formSlice';
-import step1Slice from './step1/step1Slice';
-import step2Slice from './step2/step2Slice';
-import step3Slice from './step3/step3Slice';
+import { formApi } from './form/formAPI';
 
 export const store = configureStore({
   reducer: {
     form: formSlice,
-    step1: step1Slice,
-    step2: step2Slice,
-    step3: step3Slice,
+    [formApi.reducerPath]: formApi.reducer,
   },
+  middleware: (gDM) => gDM().concat([formApi.middleware]),
 });
 
 export type AppDispatch = typeof store.dispatch;

@@ -1,18 +1,28 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { store } from '../index';
-import { FormData, FormState, SendStatus, StepNumber } from './types';
-import { setStep3 } from '@store/step3/step3Slice';
-import { sendData } from './formAPI';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { FormState, StepNumber, IStep1, IStep2, IStep3 } from './types';
 
-const initialState: FormState = {
-  step: StepNumber.zero,
-  sendStatus: null,
+const step1: IStep1 = {
+  nickname: '',
+  name: '',
+  surname: '',
+  sex: null,
 };
 
-export const sendForm = createAsyncThunk('form/sendForm', async (data: FormData) => {
-  const response = await sendData(data);
-  return response.data;
-});
+const step2: IStep2 = {
+  advantages: ['', '', ''],
+  checkboxGroup: [],
+  radioGroup: 0,
+};
+
+const step3: IStep3 = {
+  about: '',
+};
+const initialState: FormState = {
+  step: StepNumber.zero,
+  step1,
+  step2,
+  step3,
+};
 
 export const formSlice = createSlice({
   name: 'form',
@@ -22,37 +32,21 @@ export const formSlice = createSlice({
     setStep: (state, action: PayloadAction<StepNumber>) => {
       state.step = action.payload;
     },
-    submitForm: (_, action: PayloadAction<FormData>) => {
-      sendForm(action.payload);
+    setStep1: (state, action: PayloadAction<IStep1>) => {
+      state.step1 = action.payload;
+      return state;
     },
-  },
-
-  extraReducers: (builder) => {
-    // builder.addCase(setStep3, () => {
-    //   const allState = store.getState();
-    //   const formData: FormData = {
-    //     ...allState.step1,
-    //     ...allState.step2,
-    //     ...allState.step3,
-    //   };
-    //   sendForm(formData);
-    // }),
-    builder.addCase(sendForm.pending, (state) => {
-      state.sendStatus = SendStatus.pending;
-    }),
-      builder.addCase(sendForm.fulfilled, (state, action) => {
-        if (action.payload.status !== '200') {
-          state.sendStatus = SendStatus.error; // TODO: потестить ошибку
-        }
-
-        state.sendStatus = SendStatus.successful;
-      }),
-      builder.addCase(sendForm.rejected, (state) => {
-        state.sendStatus = SendStatus.error;
-      });
+    setStep2: (state, action: PayloadAction<IStep2>) => {
+      state.step2 = action.payload;
+      return state;
+    },
+    setStep3: (state, action: PayloadAction<IStep3>) => {
+      state.step3 = action.payload;
+      return state;
+    },
   },
 });
 
-export const { setStep } = formSlice.actions;
+export const { setStep, setStep1, setStep2, setStep3 } = formSlice.actions;
 
 export default formSlice.reducer;

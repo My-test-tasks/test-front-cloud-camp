@@ -1,9 +1,24 @@
-import axios from 'axios';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { FormData } from './types';
 
-export async function sendData(data: FormData) {
-  const API_URL = 'https://api.sbercloud.ru/content/v1/bootcamp/frontend'; //TODO вынести в .env
-  const response = await axios.post(API_URL, data);
+const URL = 'https://api.sbercloud.ru/content/v1/bootcamp/frontend'; //TODO вынести в .env
 
-  return response;
-}
+export const formApi = createApi({
+  reducerPath: 'formApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: `${URL}`,
+  }),
+  endpoints: (build) => ({
+    sendForm: build.mutation<unknown, FormData>({
+      query: (formData) => {
+        return {
+          url: `${URL}`,
+          method: 'POST',
+          body: formData,
+        };
+      },
+    }),
+  }),
+});
+
+export const { useSendFormMutation } = formApi;
