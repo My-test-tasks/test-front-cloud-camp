@@ -14,4 +14,5 @@ export default defineConfig({
       { find: '@store', replacement: path.resolve(__dirname, './src/store') },
     ],
   },
+  base: 'https://my-test-tasks.github.io/test-front-cloud-camp/',
 });
