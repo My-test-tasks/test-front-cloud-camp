@@ -4,17 +4,18 @@ import { FieldInputProps, FormikState } from 'formik';
 import { Sex } from '@store/form/types';
 
 type InputSelectProps = {
-  field: FieldInputProps<any>;
-  form: FormikState<any>;
+  field: FieldInputProps<any>; // eslint-disable-line
+  form: FormikState<any>; // eslint-disable-line
   title: string;
   tip?: string;
+  id?: string;
 };
 
-const InputSelect: FC<InputSelectProps> = ({ field, form: { touched, errors }, title, tip }) => {
+const InputSelect: FC<InputSelectProps> = ({ field, form: { touched, errors }, title, tip, id }) => {
   return (
     <div className={styles.row}>
       <label htmlFor={field.name}>{title}</label>
-      <select className={styles.select} {...field}>
+      <select className={styles.select} {...field} id={id}>
         <option value={0} disabled hidden>
           Не выбранно
         </option>
