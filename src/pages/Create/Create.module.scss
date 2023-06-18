@@ -1,0 +1,13 @@
+@import '@styles/colors.scss';
+
+.page {
+  max-width: 900px;
+  background-color: $white;
+  border-radius: 12px 12px 0px 0px;
+  margin: 24px auto;
+  padding: 62px 110px 80px;
+
+  @media (max-width: 768px) {
+    padding: 62px 30px 80px;
+  }
+}
