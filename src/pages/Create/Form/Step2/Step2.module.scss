@@ -1,0 +1,68 @@
+@import '@styles/colors.scss';
+
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.checkboxes,
+.radios {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+  padding-left: 2px;
+}
+
+.advantages {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+
+  & button {
+    cursor: pointer;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.error {
+  color: red;
+}
+
+.checkbox,
+.radio {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid $checkbox-border;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.checkbox {
+  -webkit-appearance: checkbox;
+}
+
+.radio {
+  border-radius: 50%;
+  -webkit-appearance: radio;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 64px;
+}
