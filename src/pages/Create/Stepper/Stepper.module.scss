@@ -1,0 +1,81 @@
+@import '@styles/colors.scss';
+
+.header {
+  position: relative;
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 73px;
+}
+
+.circles,
+.icons,
+.lines,
+.numbers {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icons {
+  position: absolute;
+  bottom: 29px;
+  z-index: 2;
+}
+
+.circles {
+  z-index: 1;
+}
+
+.lines {
+  position: absolute;
+  bottom: 33px;
+  z-index: 0;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: $stepper-circle;
+
+  &.checked {
+    background-color: $stepper-active;
+  }
+
+  &.active {
+    background-color: $stepper-active;
+  }
+}
+
+.line {
+  width: 100%;
+  height: 8px;
+  background-color: $header-border;
+  border-radius: 8px;
+
+  &.checked {
+    background-color: $stepper-active;
+  }
+}
+
+.number {
+  color: $stepper-active;
+
+  &.disabled {
+    color: $stepper-number;
+  }
+}
