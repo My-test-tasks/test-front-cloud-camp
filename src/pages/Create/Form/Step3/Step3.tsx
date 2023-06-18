@@ -45,6 +45,7 @@ const Step3 = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.about}
+                id='field-about'
               ></textarea>
 
               <span className={styles.counter}>{values.about.split('').filter((ch) => ch !== ' ').length}</span>
@@ -57,7 +58,7 @@ const Step3 = () => {
               Назад
             </Button>
 
-            <Button variant={ButtonVariant.primary} onClick={() => handleSubmit()} type='submit' id='button-next'>
+            <Button variant={ButtonVariant.primary} onClick={() => handleSubmit()} type='submit' id='button-send'>
               Отправить
             </Button>
           </div>

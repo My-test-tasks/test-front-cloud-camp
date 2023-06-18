@@ -53,9 +53,14 @@ const Step2 = () => {
                   {values.advantages.map((_, index) => (
                     <Fragment key={`row-${index}`}>
                       <div key={`row-${index}`} className={styles.row}>
-                        <Field name={`advantages.${index}`} component={InputText} placeholder='Placeholder' />
+                        <Field
+                          name={`advantages.${index}`}
+                          component={InputText}
+                          placeholder='Placeholder'
+                          id={`field-advantages-${index + 1}`}
+                        />
 
-                        <button onClick={() => remove(index)} title='Delete'>
+                        <button onClick={() => remove(index)} title='Delete' id={`button-remove-${index + 1}`}>
                           <img src={trashIcon} alt='Delete' />
                         </button>
                       </div>
@@ -64,7 +69,7 @@ const Step2 = () => {
                       </p>
                     </Fragment>
                   ))}
-                  <Button variant={ButtonVariant.secondary} onClick={() => push('')}>
+                  <Button variant={ButtonVariant.secondary} onClick={() => push('')} id='button-add'>
                     +
                   </Button>
                 </div>
@@ -79,7 +84,7 @@ const Step2 = () => {
                   name='checkboxGroup'
                   type='checkbox'
                   value='1'
-                  id='s1'
+                  id='field-checkbox-group-option-1'
                   className={styles.checkbox}
                   onChange={handleChange}
                   defaultChecked={values.checkboxGroup.includes('1')}
@@ -92,7 +97,7 @@ const Step2 = () => {
                   name='checkboxGroup'
                   type='checkbox'
                   value='2'
-                  id='s2'
+                  id='field-checkbox-group-option-2'
                   className={styles.checkbox}
                   onChange={handleChange}
                   defaultChecked={values.checkboxGroup.includes('2')}
@@ -104,7 +109,7 @@ const Step2 = () => {
                   name='checkboxGroup'
                   type='checkbox'
                   value='3'
-                  id='s3'
+                  id='field-checkbox-group-option-3'
                   className={styles.checkbox}
                   onChange={handleChange}
                   defaultChecked={values.checkboxGroup.includes('3')}
@@ -121,6 +126,7 @@ const Step2 = () => {
                   name='radioGroup'
                   type='radio'
                   value='1'
+                  id='field-radio-group-option-1'
                   className={styles.radio}
                   onChange={handleChange}
                   defaultChecked={values.radioGroup == 1}
@@ -132,6 +138,7 @@ const Step2 = () => {
                   name='radioGroup'
                   type='radio'
                   value='2'
+                  id='field-radio-group-option-2'
                   className={styles.radio}
                   onChange={handleChange}
                   defaultChecked={values.radioGroup == 2}
@@ -143,6 +150,7 @@ const Step2 = () => {
                   name='radioGroup'
                   type='radio'
                   value='3'
+                  id='field-radio-group-option-3'
                   className={styles.radio}
                   onChange={handleChange}
                   defaultChecked={values.radioGroup == 3}

@@ -44,14 +44,29 @@ const Step1 = () => {
       {(props) => (
         <>
           <div className={styles.step}>
-            <Field name='nickname' component={InputText} title='Nickname' tip=' ' placeholder='Placeholder' />
+            <Field
+              name='nickname'
+              component={InputText}
+              title='Nickname'
+              tip=' '
+              placeholder='Placeholder'
+              id='field-nickname'
+            />
 
-            <Field name='name' component={InputText} title='Name' tip=' ' placeholder='Placeholder' />
+            <Field name='name' component={InputText} title='Name' tip=' ' placeholder='Placeholder' id='field-name' />
 
-            <Field name='surname' component={InputText} title='Surname' tip=' ' placeholder='Placeholder' />
+            <Field
+              name='surname'
+              component={InputText}
+              title='Surname'
+              tip=' '
+              placeholder='Placeholder'
+              id='field-surname'
+            />
 
-            <Field name='sex' component={InputSelect} title='Sex' tip=' ' />
+            <Field name='sex' component={InputSelect} title='Sex' tip=' ' id='field-sex' />
           </div>
+
           <div className={styles.buttons}>
             <Button variant={ButtonVariant.secondary} onClick={() => backHandle(props.values)} id='button-back'>
               Назад

@@ -69,12 +69,12 @@ const Modal: FC<ModalProps> = ({ variant }) => {
 
       {variant === ModalVariant.loading && <span></span>}
       {variant === ModalVariant.success && (
-        <Button variant={ButtonVariant.primary} onClick={toMainBtnHandler}>
+        <Button variant={ButtonVariant.primary} onClick={toMainBtnHandler} id='button-to-main'>
           На главную
         </Button>
       )}
       {variant === ModalVariant.error && (
-        <Button variant={ButtonVariant.primary} className={styles.close} onClick={closeBtnHandler}>
+        <Button variant={ButtonVariant.primary} className={styles.close} onClick={closeBtnHandler} id='button-close'>
           Закрыть
         </Button>
       )}

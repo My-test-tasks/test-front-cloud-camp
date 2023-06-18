@@ -18,8 +18,12 @@ const InputSelect: FC<InputSelectProps> = ({ field, form: { touched, errors }, t
         <option value={0} disabled hidden>
           Не выбранно
         </option>
-        <option value={Sex.man}>{Sex.man}</option>
-        <option value={Sex.woman}>{Sex.woman}</option>
+        <option value={Sex.man} id='field-sex-option-man'>
+          {Sex.man}
+        </option>
+        <option value={Sex.woman} id='field-sex-option-woman'>
+          {Sex.woman}
+        </option>
       </select>
       {tip && <p className={styles.tip}>{`Tip ${tip}`}</p>}
       {touched[field.name] && errors[field.name] && <p className={styles.error}>{errors[field.name]?.toString()}</p>}
