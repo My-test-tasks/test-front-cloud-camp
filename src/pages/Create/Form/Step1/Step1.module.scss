@@ -1,0 +1,19 @@
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.error {
+  color: red;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 64px;
+}
