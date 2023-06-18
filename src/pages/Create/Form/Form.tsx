@@ -1,0 +1,44 @@
+import { useAppSelector } from '@store/hooks';
+import { useEffect } from 'react';
+import Step1 from './Step1';
+import Step2 from './Step2';
+import Step3 from './Step3';
+import { StepNumber } from '@store/form/types';
+import { Navigate } from 'react-router-dom';
+import ROUTES from '@configs/routes';
+import { useSendFormMutation } from '@store/form/formAPI';
+import Modal, { ModalVariant } from '@components/Modal';
+
+const CreateForm = () => {
+  const { step, step1, step2, step3 } = useAppSelector((state) => state.form);
+
+  const [sendForm, { isSuccess, isLoading, isError }] = useSendFormMutation();
+
+  useEffect(() => {
+    if (step === StepNumber.send) {
+      const formData = {
+        ...step1,
+        ...step2,
+        ...step3,
+      };
+
+      sendForm(formData);
+    }
+  }, [step, step1, step2, step3, sendForm]);
+
+  return (
+    <>
+      {step === StepNumber.zero && <Navigate to={ROUTES.main} />}
+      {step === StepNumber.one && <Step1 />}
+      {step === StepNumber.two && <Step2 />}
+      {step === StepNumber.three && <Step3 />}
+      {step === StepNumber.send && <Step3 />}
+
+      {isLoading && step === StepNumber.send && <Modal variant={ModalVariant.loading} />}
+      {isSuccess && step === StepNumber.send && <Modal variant={ModalVariant.success} />}
+      {isError && step === StepNumber.send && <Modal variant={ModalVariant.error} />}
+    </>
+  );
+};
+
+export default CreateForm;
