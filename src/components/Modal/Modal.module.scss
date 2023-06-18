@@ -1,0 +1,72 @@
+@import '@styles/colors.scss';
+
+.modal {
+  width: 100%;
+  max-width: 460px;
+  height: 100%;
+  max-height: 312px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 8px 32px $header-border;
+  border: none;
+  border-radius: 12px;
+  padding: 32px;
+
+  &::backdrop {
+    background-color: $input-border;
+  }
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.error {
+    justify-content: space-between;
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.exit {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $close-icon;
+  border-radius: 50%;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+
+  &.loading {
+    background-color: $loading;
+  }
+
+  &.success {
+    background-color: $success;
+  }
+
+  &.error {
+    background-color: $error;
+  }
+}
+
+.close {
+  align-self: flex-end;
+}
