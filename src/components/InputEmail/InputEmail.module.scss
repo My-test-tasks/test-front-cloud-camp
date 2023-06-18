@@ -1,0 +1,24 @@
+@import '@styles/colors.scss';
+
+.row {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.input {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid $input-border;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 13px;
+
+  &:disabled {
+    color: $input-disabled-text;
+  }
+}
