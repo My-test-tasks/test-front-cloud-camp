@@ -5,7 +5,7 @@ const step1: IStep1 = {
   nickname: '',
   name: '',
   surname: '',
-  sex: null,
+  sex: 0,
 };
 
 const step2: IStep2 = {

@@ -1,8 +1,8 @@
 export enum StepNumber {
   zero = 'zero',
-  one = 'one',
-  two = 'two',
-  three = 'three',
+  one = 1,
+  two = 2,
+  three = 3,
   send = 'send',
 }
 
@@ -15,7 +15,7 @@ export interface IStep1 {
   nickname: string;
   name: string;
   surname: string;
-  sex: Sex | null;
+  sex: Sex | 0;
 }
 
 export interface IStep2 {
