@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { FormData, Sex } from './types';
-
-const URL = 'https://api.sbercloud.ru/content/v1/bootcamp/frontend'; //TODO вынести в .env
+import { URL } from '@configs/api';
 
 export const formApi = createApi({
   reducerPath: 'formApi',
