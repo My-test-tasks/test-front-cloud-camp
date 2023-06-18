@@ -44,9 +44,15 @@ export const formSlice = createSlice({
       state.step3 = action.payload;
       return state;
     },
+    resetSteps: (state) => {
+      state.step1 = step1;
+      state.step2 = step2;
+      state.step3 = step3;
+      state.step = StepNumber.zero;
+    },
   },
 });
 
-export const { setStep, setStep1, setStep2, setStep3 } = formSlice.actions;
+export const { setStep, setStep1, setStep2, setStep3, resetSteps } = formSlice.actions;
 
 export default formSlice.reducer;

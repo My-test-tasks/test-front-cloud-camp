@@ -6,7 +6,7 @@ import errorIcon from '@assets/icons/error.svg';
 import closeIcon from '@assets/icons/close.svg';
 import styles from './Modal.module.scss';
 import { useAppDispatch } from '@store/hooks';
-import { setStep } from '@store/form/formSlice';
+import { resetSteps, setStep } from '@store/form/formSlice';
 import { StepNumber } from '@store/form/types';
 
 export enum ModalVariant {
@@ -34,7 +34,7 @@ const Modal: FC<ModalProps> = ({ variant }) => {
   };
 
   const toMainBtnHandler = () => {
-    dispatch(setStep(StepNumber.zero));
+    dispatch(resetSteps());
     ref.current?.close();
   };
 
