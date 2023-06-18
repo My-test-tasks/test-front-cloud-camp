@@ -21,7 +21,7 @@ export interface IStep1 {
 export interface IStep2 {
   advantages: string[];
   checkboxGroup: string[];
-  radioGroup: number;
+  radioGroup: string;
 }
 
 export interface IStep3 {

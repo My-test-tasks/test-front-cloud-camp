@@ -11,7 +11,7 @@ const step1: IStep1 = {
 const step2: IStep2 = {
   advantages: ['', '', ''],
   checkboxGroup: [],
-  radioGroup: 0,
+  radioGroup: '',
 };
 
 const step3: IStep3 = {

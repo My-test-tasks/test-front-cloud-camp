@@ -129,7 +129,7 @@ const Step2 = () => {
                   id='field-radio-group-option-1'
                   className={styles.radio}
                   onChange={handleChange}
-                  defaultChecked={values.radioGroup == 1}
+                  defaultChecked={values.radioGroup === '1'}
                 />
                 1
               </label>
@@ -141,7 +141,7 @@ const Step2 = () => {
                   id='field-radio-group-option-2'
                   className={styles.radio}
                   onChange={handleChange}
-                  defaultChecked={values.radioGroup == 2}
+                  defaultChecked={values.radioGroup === '2'}
                 />
                 2
               </label>
@@ -153,7 +153,7 @@ const Step2 = () => {
                   id='field-radio-group-option-3'
                   className={styles.radio}
                   onChange={handleChange}
-                  defaultChecked={values.radioGroup == 3}
+                  defaultChecked={values.radioGroup === '3'}
                 />
                 3
               </label>
