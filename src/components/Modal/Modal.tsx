@@ -6,8 +6,7 @@ import errorIcon from '@assets/icons/error.svg';
 import closeIcon from '@assets/icons/close.svg';
 import styles from './Modal.module.scss';
 import { useAppDispatch } from '@store/hooks';
-import { resetSteps, setStep } from '@store/form/formSlice';
-import { StepNumber } from '@store/form/types';
+import { resetSteps, toggleSending } from '@store/form/formSlice';
 
 export enum ModalVariant {
   loading = 'loading',
@@ -29,12 +28,13 @@ const Modal: FC<ModalProps> = ({ variant }) => {
   }, []);
 
   const closeBtnHandler = () => {
-    dispatch(setStep(StepNumber.three));
+    dispatch(toggleSending());
     ref.current?.close();
   };
 
   const toMainBtnHandler = () => {
     dispatch(resetSteps());
+    dispatch(toggleSending());
     ref.current?.close();
   };
 

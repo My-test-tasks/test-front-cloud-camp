@@ -10,12 +10,12 @@ import { useSendFormMutation } from '@store/form/formAPI';
 import Modal, { ModalVariant } from '@components/Modal';
 
 const CreateForm = () => {
-  const { step, step1, step2, step3 } = useAppSelector((state) => state.form);
+  const { step, step1, step2, step3, sending } = useAppSelector((state) => state.form);
 
   const [sendForm, { isSuccess, isLoading, isError }] = useSendFormMutation();
 
   useEffect(() => {
-    if (step === StepNumber.send) {
+    if (sending) {
       const formData = {
         ...step1,
         ...step2,
@@ -24,7 +24,7 @@ const CreateForm = () => {
 
       sendForm(formData);
     }
-  }, [step, step1, step2, step3, sendForm]);
+  }, [step1, step2, step3, sending, sendForm]);
 
   return (
     <>
@@ -32,11 +32,10 @@ const CreateForm = () => {
       {step === StepNumber.one && <Step1 />}
       {step === StepNumber.two && <Step2 />}
       {step === StepNumber.three && <Step3 />}
-      {step === StepNumber.send && <Step3 />}
 
-      {isLoading && step === StepNumber.send && <Modal variant={ModalVariant.loading} />}
-      {isSuccess && step === StepNumber.send && <Modal variant={ModalVariant.success} />}
-      {isError && step === StepNumber.send && <Modal variant={ModalVariant.error} />}
+      {isLoading && sending && <Modal variant={ModalVariant.loading} />}
+      {isSuccess && sending && <Modal variant={ModalVariant.success} />}
+      {isError && sending && <Modal variant={ModalVariant.error} />}
     </>
   );
 };

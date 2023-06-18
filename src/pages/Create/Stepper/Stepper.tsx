@@ -7,7 +7,7 @@ import activeIcon from '@assets/icons/active.svg';
 import checkedIcon from '@assets/icons/checked.svg';
 
 type StepperProps = {
-  steps: Omit<StepNumber, StepNumber.zero | StepNumber.send>[];
+  steps: Omit<StepNumber, StepNumber.zero>[];
 };
 
 const Stepper: FC<StepperProps> = ({ steps }) => {

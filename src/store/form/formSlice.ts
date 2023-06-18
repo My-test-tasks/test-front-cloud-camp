@@ -17,11 +17,13 @@ const step2: IStep2 = {
 const step3: IStep3 = {
   about: '',
 };
+
 const initialState: FormState = {
   step: StepNumber.zero,
   step1,
   step2,
   step3,
+  sending: false,
 };
 
 export const formSlice = createSlice({
@@ -50,9 +52,12 @@ export const formSlice = createSlice({
       state.step3 = step3;
       state.step = StepNumber.zero;
     },
+    toggleSending: (state) => {
+      state.sending = !state.sending;
+    },
   },
 });
 
-export const { setStep, setStep1, setStep2, setStep3, resetSteps } = formSlice.actions;
+export const { setStep, setStep1, setStep2, setStep3, resetSteps, toggleSending } = formSlice.actions;
 
 export default formSlice.reducer;

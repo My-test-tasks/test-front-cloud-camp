@@ -3,7 +3,6 @@ export enum StepNumber {
   one = 1,
   two = 2,
   three = 3,
-  send = 'send',
 }
 
 export enum Sex {
@@ -33,6 +32,7 @@ export interface FormState {
   step1: IStep1;
   step2: IStep2;
   step3: IStep3;
+  sending: boolean;
 }
 
 export type FormData = IStep1 & IStep2 & IStep3;

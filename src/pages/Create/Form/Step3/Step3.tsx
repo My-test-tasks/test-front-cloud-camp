@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './Step3.module.scss';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
-import { setStep, setStep3 } from '@store/form/formSlice';
+import { setStep, setStep3, toggleSending } from '@store/form/formSlice';
 import { IStep3, StepNumber } from '@store/form/types';
 
 const Step3 = () => {
@@ -16,7 +16,7 @@ const Step3 = () => {
 
   const nextHandle = (values: IStep3) => {
     dispatch(setStep3(values));
-    dispatch(setStep(StepNumber.send));
+    dispatch(toggleSending());
   };
 
   const backHandle = (values: IStep3) => {
